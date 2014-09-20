@@ -116,7 +116,6 @@ static void *ObservationContext = &ObservationContext;
     
     NSArray *selectedLines = self.selectedLines;
     
-    
     for (Line *line in self.lines) {
         if ([selectedLines containsObject:line]) {
             [[NSColor redColor] set];
@@ -126,7 +125,7 @@ static void *ObservationContext = &ObservationContext;
         }
         
         [[NSColor blackColor] set];
-        [NSBezierPath setDefaultLineWidth:0.0];
+        [NSBezierPath setDefaultLineWidth:1.0];
         [NSBezierPath strokeLineFromPoint:line.startPoint
                                   toPoint:line.endPoint];
     }
@@ -231,6 +230,59 @@ static void *ObservationContext = &ObservationContext;
 
 - (void)keyDown:(NSEvent *)event {
     [self interpretKeyEvents:@[event]];
+}
+
+- (IBAction)copy:(id)sender {
+    NSArray *selectedLines = self.selectedLines;
+    if (selectedLines.count == 0) {
+        NSBeep();
+        return;
+    }
+    
+    NSRect boundingRect = NSZeroRect;
+    for (Line *line in selectedLines) {
+        boundingRect = NSUnionRect(boundingRect, line.boundingRect);
+    }
+    
+    NSMutableData *pdfData = [NSMutableData data];
+    
+    CGDataConsumerRef consumer = CGDataConsumerCreateWithCFData((CFMutableDataRef) pdfData );
+    CGRect mediaBox = boundingRect;
+    CGContextRef pdfContext = CGPDFContextCreate(consumer, &mediaBox, NULL);
+    CGDataConsumerRelease(consumer);
+    
+    NSMutableData *metadata = [NSMutableData data];
+    char *header = "Lines";
+    [metadata appendBytes:&header length:5];
+    [metadata appendData:[NSKeyedArchiver archivedDataWithRootObject:selectedLines]];
+    
+    CGPDFContextAddDocumentMetadata(pdfContext, (CFDataRef)metadata);
+    
+    NSGraphicsContext *previousContext = [NSGraphicsContext currentContext];
+    NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:pdfContext flipped:YES];
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:context];
+    
+    CGPDFContextBeginPage(pdfContext, NULL);
+    
+    [[NSColor blackColor] set];
+    [NSBezierPath setDefaultLineWidth:1.0];
+    for (Line *line in self.lines) {
+        [NSBezierPath strokeLineFromPoint:line.startPoint
+                                  toPoint:line.endPoint];
+    }
+    
+    CGPDFContextEndPage(pdfContext);
+    
+    [NSGraphicsContext setCurrentContext:previousContext];
+    [NSGraphicsContext restoreGraphicsState];
+    
+    CGPDFContextClose(pdfContext);
+    CGContextRelease(pdfContext);
+    
+    NSPasteboard *pasteboard  = [NSPasteboard generalPasteboard];
+    [pasteboard declareTypes:@[NSPDFPboardType] owner:self];
+    [pasteboard setData:pdfData forType:NSPDFPboardType];
 }
 
 @end

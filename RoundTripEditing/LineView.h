@@ -20,4 +20,6 @@ typedef NS_ENUM(NSUInteger, LineViewEditMode) {
 
 @property (nonatomic) LineViewEditMode editMode;
 
+- (NSData *)exportPDF:(BOOL)useSelectedLines;
+
 @end

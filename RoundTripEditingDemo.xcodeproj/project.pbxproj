@@ -20,6 +20,11 @@
 		D4AE22D419CD73D8003183D4 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE22D219CD73D8003183D4 /* Line.m */; };
 		D4AE22D719CD73FF003183D4 /* LineView.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AE22D519CD73FF003183D4 /* LineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4AE22D819CD73FF003183D4 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE22D619CD73FF003183D4 /* LineView.m */; };
+		D4AE22E219CD8AA7003183D4 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4AE22E119CD8AA7003183D4 /* icon.icns */; };
+		D4AE22E619CD8AA7003183D4 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE22E519CD8AA7003183D4 /* ActionViewController.m */; };
+		D4AE22E819CD8AA7003183D4 /* ActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AE22E719CD8AA7003183D4 /* ActionViewController.xib */; };
+		D4AE22EB19CD8AA7003183D4 /* RoundTripEditingExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D4AE22DD19CD8AA7003183D4 /* RoundTripEditingExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D4AE22F219CD8EE0003183D4 /* RoundTripEditing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AE22AF19CD7365003183D4 /* RoundTripEditing.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,20 @@
 			remoteGlobalIDString = D4AE22AE19CD7365003183D4;
 			remoteInfo = RoundTripEditing;
 		};
+		D4AE22E919CD8AA7003183D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4AE227919CD7338003183D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4AE22DC19CD8AA7003183D4;
+			remoteInfo = RoundTripEditingExtension;
+		};
+		D4AE22EC19CD8AA7003183D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4AE227919CD7338003183D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4AE22DC19CD8AA7003183D4;
+			remoteInfo = RoundTripEditingExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +68,17 @@
 				D4AE22C719CD7366003183D4 /* RoundTripEditing.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4AE22F119CD8AA7003183D4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D4AE22EB19CD8AA7003183D4 /* RoundTripEditingExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -71,6 +101,13 @@
 		D4AE22D219CD73D8003183D4 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		D4AE22D519CD73FF003183D4 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
 		D4AE22D619CD73FF003183D4 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
+		D4AE22DD19CD8AA7003183D4 /* RoundTripEditingExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RoundTripEditingExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4AE22E019CD8AA7003183D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4AE22E119CD8AA7003183D4 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		D4AE22E319CD8AA7003183D4 /* RoundTripEditingExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RoundTripEditingExtension.entitlements; sourceTree = "<group>"; };
+		D4AE22E419CD8AA7003183D4 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		D4AE22E519CD8AA7003183D4 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		D4AE22E719CD8AA7003183D4 /* ActionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +126,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4AE22DA19CD8AA7003183D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4AE22F219CD8EE0003183D4 /* RoundTripEditing.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,6 +142,7 @@
 			children = (
 				D4AE22B019CD7365003183D4 /* RoundTripEditing */,
 				D4AE228319CD7338003183D4 /* RoundTripEditingDemo */,
+				D4AE22DE19CD8AA7003183D4 /* RoundTripEditingExtension */,
 				D4AE228219CD7338003183D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,6 +152,7 @@
 			children = (
 				D4AE228119CD7338003183D4 /* RoundTripEditingDemo.app */,
 				D4AE22AF19CD7365003183D4 /* RoundTripEditing.framework */,
+				D4AE22DD19CD8AA7003183D4 /* RoundTripEditingExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +202,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D4AE22DE19CD8AA7003183D4 /* RoundTripEditingExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D4AE22E419CD8AA7003183D4 /* ActionViewController.h */,
+				D4AE22E519CD8AA7003183D4 /* ActionViewController.m */,
+				D4AE22E719CD8AA7003183D4 /* ActionViewController.xib */,
+				D4AE22DF19CD8AA7003183D4 /* Supporting Files */,
+			);
+			path = RoundTripEditingExtension;
+			sourceTree = "<group>";
+		};
+		D4AE22DF19CD8AA7003183D4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4AE22E019CD8AA7003183D4 /* Info.plist */,
+				D4AE22E119CD8AA7003183D4 /* icon.icns */,
+				D4AE22E319CD8AA7003183D4 /* RoundTripEditingExtension.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -179,12 +247,15 @@
 				D4AE227E19CD7338003183D4 /* Frameworks */,
 				D4AE227F19CD7338003183D4 /* Resources */,
 				D4AE22CD19CD7366003183D4 /* Embed Frameworks */,
+				D4AE22F119CD8AA7003183D4 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				D4AE22C519CD7366003183D4 /* PBXTargetDependency */,
 				D4AE22C919CD7366003183D4 /* PBXTargetDependency */,
+				D4AE22EA19CD8AA7003183D4 /* PBXTargetDependency */,
+				D4AE22ED19CD8AA7003183D4 /* PBXTargetDependency */,
 			);
 			name = RoundTripEditingDemo;
 			productName = RoundTripEditingDemo;
@@ -209,6 +280,23 @@
 			productReference = D4AE22AF19CD7365003183D4 /* RoundTripEditing.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		D4AE22DC19CD8AA7003183D4 /* RoundTripEditingExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4AE22EE19CD8AA7003183D4 /* Build configuration list for PBXNativeTarget "RoundTripEditingExtension" */;
+			buildPhases = (
+				D4AE22D919CD8AA7003183D4 /* Sources */,
+				D4AE22DA19CD8AA7003183D4 /* Frameworks */,
+				D4AE22DB19CD8AA7003183D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RoundTripEditingExtension;
+			productName = RoundTripEditingExtension;
+			productReference = D4AE22DD19CD8AA7003183D4 /* RoundTripEditingExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,6 +310,9 @@
 						CreatedOnToolsVersion = 6.1;
 					};
 					D4AE22AE19CD7365003183D4 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					D4AE22DC19CD8AA7003183D4 = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
@@ -241,6 +332,7 @@
 			targets = (
 				D4AE228019CD7338003183D4 /* RoundTripEditingDemo */,
 				D4AE22AE19CD7365003183D4 /* RoundTripEditing */,
+				D4AE22DC19CD8AA7003183D4 /* RoundTripEditingExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -260,6 +352,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4AE22DB19CD8AA7003183D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4AE22E819CD8AA7003183D4 /* ActionViewController.xib in Resources */,
+				D4AE22E219CD8AA7003183D4 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +386,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4AE22D919CD8AA7003183D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4AE22E619CD8AA7003183D4 /* ActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -297,6 +406,16 @@
 			isa = PBXTargetDependency;
 			target = D4AE22AE19CD7365003183D4 /* RoundTripEditing */;
 			targetProxy = D4AE22C819CD7366003183D4 /* PBXContainerItemProxy */;
+		};
+		D4AE22EA19CD8AA7003183D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4AE22DC19CD8AA7003183D4 /* RoundTripEditingExtension */;
+			targetProxy = D4AE22E919CD8AA7003183D4 /* PBXContainerItemProxy */;
+		};
+		D4AE22ED19CD8AA7003183D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4AE22DC19CD8AA7003183D4 /* RoundTripEditingExtension */;
+			targetProxy = D4AE22EC19CD8AA7003183D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -462,6 +581,36 @@
 			};
 			name = Release;
 		};
+		D4AE22EF19CD8AA7003183D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = RoundTripEditingExtension/RoundTripEditingExtension.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RoundTripEditingExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D4AE22F019CD8AA7003183D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = RoundTripEditingExtension/RoundTripEditingExtension.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = RoundTripEditingExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -487,6 +636,14 @@
 			buildConfigurations = (
 				D4AE22CB19CD7366003183D4 /* Debug */,
 				D4AE22CC19CD7366003183D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D4AE22EE19CD8AA7003183D4 /* Build configuration list for PBXNativeTarget "RoundTripEditingExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4AE22EF19CD8AA7003183D4 /* Debug */,
+				D4AE22F019CD8AA7003183D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

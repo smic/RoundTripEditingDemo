@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6246" systemVersion="14A361c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment version="1070" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6246"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ActionViewController">
+            <connections>
+                <outlet property="lineView" destination="9Zl-bt-Uec" id="VdL-gM-ijy"/>
+                <outlet property="view" destination="1" id="2"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="467"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="1uM-r7-H1c">
+                    <rect key="frame" x="307" y="15" width="60" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="CO9-Vg-Euw"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" title="Send" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2l4-PO-we5">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent">D</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="send:" target="-2" id="yic-EC-GGk"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="NVE-vN-dkz">
+                    <rect key="frame" x="243" y="15" width="60" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="cP1-hK-9ZX"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" title="Cancel" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6Up-t3-mwm">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                    </buttonCell>
+                    <connections>
+                        <action selector="cancel:" target="-2" id="Qav-AK-DGt"/>
+                    </connections>
+                </button>
+                <box autoresizesSubviews="NO" boxType="custom" borderType="bezel" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="FvQ-HM-eGn">
+                    <rect key="frame" x="20" y="50" width="352" height="356"/>
+                    <view key="contentView">
+                        <rect key="frame" x="1" y="1" width="350" height="354"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Zl-bt-Uec" customClass="LineView">
+                                <rect key="frame" x="-1" y="0.0" width="351" height="368"/>
+                            </customView>
+                        </subviews>
+                    </view>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </box>
+                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vGS-ac-BOb">
+                    <rect key="frame" x="20" y="423" width="71" height="25"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="selectOne" id="hGu-ti-WK6">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment image="NSAddTemplate" width="32" tag="1"/>
+                            <segment image="NSActionTemplate" width="32" selected="YES"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="chooseEditMode:" target="-2" id="8FI-fx-nlv"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <constraints>
+                <constraint firstItem="NVE-vN-dkz" firstAttribute="height" secondItem="1uM-r7-H1c" secondAttribute="height" id="07a-OJ-YMi"/>
+                <constraint firstItem="1uM-r7-H1c" firstAttribute="leading" secondItem="NVE-vN-dkz" secondAttribute="trailing" constant="4" id="1UO-J1-LbJ"/>
+                <constraint firstItem="vGS-ac-BOb" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="4Cc-BX-b01"/>
+                <constraint firstAttribute="bottom" secondItem="1uM-r7-H1c" secondAttribute="bottom" constant="15" id="4wH-De-nMF"/>
+                <constraint firstItem="FvQ-HM-eGn" firstAttribute="top" secondItem="vGS-ac-BOb" secondAttribute="bottom" constant="19" id="7yf-cD-BeA"/>
+                <constraint firstItem="NVE-vN-dkz" firstAttribute="top" secondItem="FvQ-HM-eGn" secondAttribute="bottom" constant="16" id="8V0-qW-3Px"/>
+                <constraint firstAttribute="trailing" secondItem="FvQ-HM-eGn" secondAttribute="trailing" constant="15" id="F4E-Z9-m3p"/>
+                <constraint firstItem="FvQ-HM-eGn" firstAttribute="leading" secondItem="vGS-ac-BOb" secondAttribute="leading" id="FQd-eD-WyI"/>
+                <constraint firstItem="vGS-ac-BOb" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="HIS-0a-tWW"/>
+                <constraint firstItem="1uM-r7-H1c" firstAttribute="leading" secondItem="NVE-vN-dkz" secondAttribute="trailing" constant="4" id="a8N-vS-Ew9"/>
+                <constraint firstAttribute="bottom" secondItem="NVE-vN-dkz" secondAttribute="bottom" constant="15" id="df1-KO-iDf"/>
+                <constraint firstItem="NVE-vN-dkz" firstAttribute="width" secondItem="1uM-r7-H1c" secondAttribute="width" id="qPo-ky-Fcw"/>
+                <constraint firstAttribute="trailing" secondItem="1uM-r7-H1c" secondAttribute="trailing" constant="20" id="qfT-cw-QQ2"/>
+            </constraints>
+            <point key="canvasLocation" x="223.5" y="417.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+    </resources>
+</document>

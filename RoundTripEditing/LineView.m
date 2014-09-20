@@ -210,7 +210,6 @@ static void *ObservationContext = &ObservationContext;
 }
 
 - (IBAction)selectAll:(id)sender {
-    NSLog(@"select all");
     self.selectedLines = self.lines;
 }
 
@@ -233,15 +232,32 @@ static void *ObservationContext = &ObservationContext;
 }
 
 - (IBAction)copy:(id)sender {
-    NSArray *selectedLines = self.selectedLines;
-    if (selectedLines.count == 0) {
+    NSData *pdfData = [self exportPDF:YES];
+    
+    if (!pdfData) {
         NSBeep();
         return;
     }
     
+    NSPasteboard *pasteboard  = [NSPasteboard generalPasteboard];
+    [pasteboard declareTypes:@[NSPDFPboardType] owner:self];
+    [pasteboard setData:pdfData forType:NSPDFPboardType];
+}
+
+#pragma mark - Public Methods
+
+- (NSData *)exportPDF:(BOOL)useSelectedLines {
+    NSArray *lines = useSelectedLines ? self.selectedLines : self.lines;
+    if (lines.count == 0) {
+        return nil;
+    }
+    
     NSRect boundingRect = NSZeroRect;
-    for (Line *line in selectedLines) {
+    for (Line *line in lines) {
         boundingRect = NSUnionRect(boundingRect, line.boundingRect);
+    }
+    if (NSWidth(boundingRect) == 0.0 || NSHeight(boundingRect) == 0.0) {
+        return nil;
     }
     
     NSMutableData *pdfData = [NSMutableData data];
@@ -252,9 +268,9 @@ static void *ObservationContext = &ObservationContext;
     CGDataConsumerRelease(consumer);
     
     NSMutableData *metadata = [NSMutableData data];
-    char *header = "Lines";
-    [metadata appendBytes:&header length:5];
-    [metadata appendData:[NSKeyedArchiver archivedDataWithRootObject:selectedLines]];
+    NSData *header = [@"Lines" dataUsingEncoding:NSUTF8StringEncoding];
+    [metadata appendData:header];
+    [metadata appendData:[NSKeyedArchiver archivedDataWithRootObject:lines]];
     
     CGPDFContextAddDocumentMetadata(pdfContext, (CFDataRef)metadata);
     
@@ -280,9 +296,7 @@ static void *ObservationContext = &ObservationContext;
     CGPDFContextClose(pdfContext);
     CGContextRelease(pdfContext);
     
-    NSPasteboard *pasteboard  = [NSPasteboard generalPasteboard];
-    [pasteboard declareTypes:@[NSPDFPboardType] owner:self];
-    [pasteboard setData:pdfData forType:NSPDFPboardType];
+    return pdfData;
 }
 
 @end

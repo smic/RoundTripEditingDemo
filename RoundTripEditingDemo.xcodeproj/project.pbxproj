@@ -13,18 +13,45 @@
 		D4AE229019CD7338003183D4 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AE228E19CD7338003183D4 /* Document.xib */; };
 		D4AE229219CD7338003183D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AE229119CD7338003183D4 /* Images.xcassets */; };
 		D4AE229519CD7338003183D4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AE229319CD7338003183D4 /* MainMenu.xib */; };
-		D4AE22A119CD7338003183D4 /* RoundTripEditingDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE22A019CD7338003183D4 /* RoundTripEditingDemoTests.m */; };
+		D4AE22B419CD7365003183D4 /* RoundTripEditing.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AE22B319CD7365003183D4 /* RoundTripEditing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4AE22C619CD7366003183D4 /* RoundTripEditing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AE22AF19CD7365003183D4 /* RoundTripEditing.framework */; };
+		D4AE22C719CD7366003183D4 /* RoundTripEditing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4AE22AF19CD7365003183D4 /* RoundTripEditing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4AE22D319CD73D8003183D4 /* Line.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AE22D119CD73D8003183D4 /* Line.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4AE22D419CD73D8003183D4 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE22D219CD73D8003183D4 /* Line.m */; };
+		D4AE22D719CD73FF003183D4 /* LineView.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AE22D519CD73FF003183D4 /* LineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4AE22D819CD73FF003183D4 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE22D619CD73FF003183D4 /* LineView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D4AE229B19CD7338003183D4 /* PBXContainerItemProxy */ = {
+		D4AE22C419CD7366003183D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4AE227919CD7338003183D4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D4AE228019CD7338003183D4;
-			remoteInfo = RoundTripEditingDemo;
+			remoteGlobalIDString = D4AE22AE19CD7365003183D4;
+			remoteInfo = RoundTripEditing;
+		};
+		D4AE22C819CD7366003183D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4AE227919CD7338003183D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4AE22AE19CD7365003183D4;
+			remoteInfo = RoundTripEditing;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4AE22CD19CD7366003183D4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D4AE22C719CD7366003183D4 /* RoundTripEditing.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D4AE228119CD7338003183D4 /* RoundTripEditingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoundTripEditingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,9 +64,13 @@
 		D4AE228F19CD7338003183D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
 		D4AE229119CD7338003183D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4AE229419CD7338003183D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D4AE229A19CD7338003183D4 /* RoundTripEditingDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoundTripEditingDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4AE229F19CD7338003183D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4AE22A019CD7338003183D4 /* RoundTripEditingDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundTripEditingDemoTests.m; sourceTree = "<group>"; };
+		D4AE22AF19CD7365003183D4 /* RoundTripEditing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RoundTripEditing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4AE22B219CD7365003183D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4AE22B319CD7365003183D4 /* RoundTripEditing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundTripEditing.h; sourceTree = "<group>"; };
+		D4AE22D119CD73D8003183D4 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		D4AE22D219CD73D8003183D4 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
+		D4AE22D519CD73FF003183D4 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
+		D4AE22D619CD73FF003183D4 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,10 +78,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4AE22C619CD7366003183D4 /* RoundTripEditing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4AE229719CD7338003183D4 /* Frameworks */ = {
+		D4AE22AB19CD7365003183D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,8 +95,8 @@
 		D4AE227819CD7338003183D4 = {
 			isa = PBXGroup;
 			children = (
+				D4AE22B019CD7365003183D4 /* RoundTripEditing */,
 				D4AE228319CD7338003183D4 /* RoundTripEditingDemo */,
-				D4AE229D19CD7338003183D4 /* RoundTripEditingDemoTests */,
 				D4AE228219CD7338003183D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				D4AE228119CD7338003183D4 /* RoundTripEditingDemo.app */,
-				D4AE229A19CD7338003183D4 /* RoundTripEditingDemoTests.xctest */,
+				D4AE22AF19CD7365003183D4 /* RoundTripEditing.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,24 +134,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D4AE229D19CD7338003183D4 /* RoundTripEditingDemoTests */ = {
+		D4AE22B019CD7365003183D4 /* RoundTripEditing */ = {
 			isa = PBXGroup;
 			children = (
-				D4AE22A019CD7338003183D4 /* RoundTripEditingDemoTests.m */,
-				D4AE229E19CD7338003183D4 /* Supporting Files */,
+				D4AE22B319CD7365003183D4 /* RoundTripEditing.h */,
+				D4AE22D119CD73D8003183D4 /* Line.h */,
+				D4AE22D219CD73D8003183D4 /* Line.m */,
+				D4AE22D519CD73FF003183D4 /* LineView.h */,
+				D4AE22D619CD73FF003183D4 /* LineView.m */,
+				D4AE22B119CD7365003183D4 /* Supporting Files */,
 			);
-			path = RoundTripEditingDemoTests;
+			path = RoundTripEditing;
 			sourceTree = "<group>";
 		};
-		D4AE229E19CD7338003183D4 /* Supporting Files */ = {
+		D4AE22B119CD7365003183D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D4AE229F19CD7338003183D4 /* Info.plist */,
+				D4AE22B219CD7365003183D4 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D4AE22AC19CD7365003183D4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4AE22D319CD73D8003183D4 /* Line.h in Headers */,
+				D4AE22D719CD73FF003183D4 /* LineView.h in Headers */,
+				D4AE22B419CD7365003183D4 /* RoundTripEditing.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		D4AE228019CD7338003183D4 /* RoundTripEditingDemo */ = {
@@ -129,33 +178,36 @@
 				D4AE227D19CD7338003183D4 /* Sources */,
 				D4AE227E19CD7338003183D4 /* Frameworks */,
 				D4AE227F19CD7338003183D4 /* Resources */,
+				D4AE22CD19CD7366003183D4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D4AE22C519CD7366003183D4 /* PBXTargetDependency */,
+				D4AE22C919CD7366003183D4 /* PBXTargetDependency */,
 			);
 			name = RoundTripEditingDemo;
 			productName = RoundTripEditingDemo;
 			productReference = D4AE228119CD7338003183D4 /* RoundTripEditingDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4AE229919CD7338003183D4 /* RoundTripEditingDemoTests */ = {
+		D4AE22AE19CD7365003183D4 /* RoundTripEditing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4AE22A719CD7338003183D4 /* Build configuration list for PBXNativeTarget "RoundTripEditingDemoTests" */;
+			buildConfigurationList = D4AE22CA19CD7366003183D4 /* Build configuration list for PBXNativeTarget "RoundTripEditing" */;
 			buildPhases = (
-				D4AE229619CD7338003183D4 /* Sources */,
-				D4AE229719CD7338003183D4 /* Frameworks */,
-				D4AE229819CD7338003183D4 /* Resources */,
+				D4AE22AA19CD7365003183D4 /* Sources */,
+				D4AE22AB19CD7365003183D4 /* Frameworks */,
+				D4AE22AC19CD7365003183D4 /* Headers */,
+				D4AE22AD19CD7365003183D4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D4AE229C19CD7338003183D4 /* PBXTargetDependency */,
 			);
-			name = RoundTripEditingDemoTests;
-			productName = RoundTripEditingDemoTests;
-			productReference = D4AE229A19CD7338003183D4 /* RoundTripEditingDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = RoundTripEditing;
+			productName = RoundTripEditing;
+			productReference = D4AE22AF19CD7365003183D4 /* RoundTripEditing.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -169,9 +221,8 @@
 					D4AE228019CD7338003183D4 = {
 						CreatedOnToolsVersion = 6.1;
 					};
-					D4AE229919CD7338003183D4 = {
+					D4AE22AE19CD7365003183D4 = {
 						CreatedOnToolsVersion = 6.1;
-						TestTargetID = D4AE228019CD7338003183D4;
 					};
 				};
 			};
@@ -189,7 +240,7 @@
 			projectRoot = "";
 			targets = (
 				D4AE228019CD7338003183D4 /* RoundTripEditingDemo */,
-				D4AE229919CD7338003183D4 /* RoundTripEditingDemoTests */,
+				D4AE22AE19CD7365003183D4 /* RoundTripEditing */,
 			);
 		};
 /* End PBXProject section */
@@ -205,7 +256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4AE229819CD7338003183D4 /* Resources */ = {
+		D4AE22AD19CD7365003183D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,21 +276,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4AE229619CD7338003183D4 /* Sources */ = {
+		D4AE22AA19CD7365003183D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4AE22A119CD7338003183D4 /* RoundTripEditingDemoTests.m in Sources */,
+				D4AE22D819CD73FF003183D4 /* LineView.m in Sources */,
+				D4AE22D419CD73D8003183D4 /* Line.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D4AE229C19CD7338003183D4 /* PBXTargetDependency */ = {
+		D4AE22C519CD7366003183D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4AE228019CD7338003183D4 /* RoundTripEditingDemo */;
-			targetProxy = D4AE229B19CD7338003183D4 /* PBXContainerItemProxy */;
+			target = D4AE22AE19CD7365003183D4 /* RoundTripEditing */;
+			targetProxy = D4AE22C419CD7366003183D4 /* PBXContainerItemProxy */;
+		};
+		D4AE22C919CD7366003183D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4AE22AE19CD7365003183D4 /* RoundTripEditing */;
+			targetProxy = D4AE22C819CD7366003183D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -361,39 +418,47 @@
 			};
 			name = Release;
 		};
-		D4AE22A819CD7338003183D4 /* Debug */ = {
+		D4AE22CB19CD7366003183D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RoundTripEditingDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				INFOPLIST_FILE = RoundTripEditing/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoundTripEditingDemo.app/Contents/MacOS/RoundTripEditingDemo";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		D4AE22A919CD7338003183D4 /* Release */ = {
+		D4AE22CC19CD7366003183D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RoundTripEditingDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = RoundTripEditing/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoundTripEditingDemo.app/Contents/MacOS/RoundTripEditingDemo";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -417,11 +482,11 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		D4AE22A719CD7338003183D4 /* Build configuration list for PBXNativeTarget "RoundTripEditingDemoTests" */ = {
+		D4AE22CA19CD7366003183D4 /* Build configuration list for PBXNativeTarget "RoundTripEditing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4AE22A819CD7338003183D4 /* Debug */,
-				D4AE22A919CD7338003183D4 /* Release */,
+				D4AE22CB19CD7366003183D4 /* Debug */,
+				D4AE22CC19CD7366003183D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

@@ -33,63 +33,79 @@
     
     // check if attachment is of kind PDF
     NSItemProvider *attachment = sharedItem.attachments.firstObject;
-    if (![attachment.registeredTypeIdentifiers containsObject:(NSString *)kUTTypePDF]) {
+    if (![attachment hasItemConformingToTypeIdentifier:(__bridge NSString *)kUTTypePDF]) {
         [self cancel:nil];
         return;
     }
     
     // load item
-    [attachment loadItemForTypeIdentifier:(NSString *)kUTTypePDF options:nil completionHandler:^(id<NSSecureCoding> item, NSError *error) {
-        // check if attachment is an instance of NSData
-        if (![(id)item isKindOfClass:NSData.class]) {
-            [self cancel:nil];
-            return;
-        }
-        NSData *pdfData = (NSData *)item;
-        
-        CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((CFDataRef)pdfData);
-        CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
-        CGDataProviderRelease(dataProvider);
-        
-        // check if the pdf could be loaded
-        if (!pdfDocument) {
-            [self cancel:nil];
-            return;
-        }
-        
-        // check if pdf container metadata
-        CGPDFDictionaryRef pdfCatalog = CGPDFDocumentGetCatalog(pdfDocument);
-        CGPDFStreamRef metadataStream = 0;
-        if(!CGPDFDictionaryGetStream(pdfCatalog,"Metadata", &metadataStream)) {
-            CGPDFDocumentRelease(pdfDocument);
-            [self cancel:nil];
-            return;
-        }
-        
-        // check if metadata contains raw data
-        CGPDFDataFormat format = CGPDFDataFormatRaw;
-        NSData *metadata = (__bridge NSData *)CGPDFStreamCopyData(metadataStream, &format);
-        if(!metadata || format != CGPDFDataFormatRaw) {
-            CGPDFDocumentRelease(pdfDocument);
-            [self cancel:nil];
-            return;
-        }
-        
-        // check if header contains our header
-        NSData *header = [@"Lines" dataUsingEncoding:NSUTF8StringEncoding];
-        if (metadata.length < header.length) {
-            [self cancel:nil];
-            return;
-        }
-        
-        if (![[metadata subdataWithRange:NSMakeRange(0, header.length)] isEqual:header]) {
-            CGPDFDocumentRelease(pdfDocument);
-            [self cancel:nil];
-            return;
-        }
-        NSArray *lines = [NSKeyedUnarchiver unarchiveObjectWithData:[metadata subdataWithRange:NSMakeRange(header.length, metadata.length - header.length)]];
-        self.lineView.lines = lines;
-    }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [attachment loadItemForTypeIdentifier:(__bridge NSString *)kUTTypePDF options:nil completionHandler:^(id<NSSecureCoding> item, NSError *error) {
+            // check if attachment is an instance of NSData
+            if (![(id)item isKindOfClass:NSData.class]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self cancel:nil];
+                });
+                return;
+            }
+            NSData *pdfData = (NSData *)item;
+            
+            CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((CFDataRef)pdfData);
+            CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
+            CGDataProviderRelease(dataProvider);
+            
+            // check if the pdf could be loaded
+            if (!pdfDocument) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self cancel:nil];
+                });
+                return;
+            }
+            
+            // check if pdf container metadata
+            CGPDFDictionaryRef pdfCatalog = CGPDFDocumentGetCatalog(pdfDocument);
+            CGPDFStreamRef metadataStream = 0;
+            if(!CGPDFDictionaryGetStream(pdfCatalog,"Metadata", &metadataStream)) {
+                CGPDFDocumentRelease(pdfDocument);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self cancel:nil];
+                });
+                return;
+            }
+            
+            // check if metadata contains raw data
+            CGPDFDataFormat format = CGPDFDataFormatRaw;
+            NSData *metadata = (__bridge NSData *)CGPDFStreamCopyData(metadataStream, &format);
+            if(!metadata || format != CGPDFDataFormatRaw) {
+                CGPDFDocumentRelease(pdfDocument);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self cancel:nil];
+                });
+                return;
+            }
+            
+            // check if header contains our header
+            NSData *header = [@"Lines" dataUsingEncoding:NSUTF8StringEncoding];
+            if (metadata.length < header.length) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self cancel:nil];
+                });
+                return;
+            }
+            
+            if (![[metadata subdataWithRange:NSMakeRange(0, header.length)] isEqual:header]) {
+                CGPDFDocumentRelease(pdfDocument);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self cancel:nil];
+                });
+                return;
+            }
+            NSArray *lines = [NSKeyedUnarchiver unarchiveObjectWithData:[metadata subdataWithRange:NSMakeRange(header.length, metadata.length - header.length)]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.lineView.lines = lines;
+            });
+        }];
+    });
 }
 
 - (IBAction)chooseEditMode:(id)sender {
